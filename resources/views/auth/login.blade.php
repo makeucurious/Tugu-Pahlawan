@@ -144,7 +144,7 @@
               <a href="sign-up.html">Sign Up Today!</a>
             </p>
           </div>
-            <form action="{{ route('login') }}" method="POST" role="form" class="php-email-form">
+            <form action="{{ route('login') }}" method="POST" class="php-email-form">
               @csrf
               <div class="form-group mt-3">
                 <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">

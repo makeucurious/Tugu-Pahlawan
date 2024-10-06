@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PlanController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,13 +23,7 @@ Route::get('/home', function () {
     return view('home', [
         "title" => "Home"
     ]);
-});
-
-Route::get('/plan', function () {
-    return view('PlanVisit', [
-        "title" => "Plan Your Visit"
-    ]);
-});
+})->name('home');
 
 Route::get('/BookTour', function () {
     return view('BookTour', [
@@ -37,9 +31,18 @@ Route::get('/BookTour', function () {
     ]);
 });
 
+Route::get('/sign-up', function () {
+    return view('auth/sign-up', [
+        "title" => "Sign Up"
+    ]);
+});
 
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('login', [LoginController::class, 'login']);
-Route::resource('plan', PlanController::class);
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('showlogin');
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('register', [AuthController::class, 'register']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/plan', [PlanController::class, 'index'])->name('plan');
+});
 
 
