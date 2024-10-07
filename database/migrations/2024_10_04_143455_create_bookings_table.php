@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid()->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('booking_code');
             $table->string('status');
             $table->date('booking_date');
             $table->integer('quantity');

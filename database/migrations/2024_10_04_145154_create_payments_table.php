@@ -17,7 +17,6 @@ return new class extends Migration
             $table->unsignedBigInteger('booking_id');
             $table->foreign('booking_id')->references('id')->on('bookings')->onDelete('cascade');
             $table->integer('amount_paid');
-            $table->string('payment_method');
             $table->string('payment_status');
             $table->timestamps();
         });
