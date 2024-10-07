@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,18 +37,17 @@ class AuthController extends Controller
         return view('register');
     }
 
-    public function register(Request $request){
-        $validate = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'phone' => 'required|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
+    public function register(UserRequest $request){
+        $validate = $request->validated();
 
         $validate['role_id'] = 2;
 
         $user = User::create($validate);
 
-        return redirect()->route('login')->with('success', 'Account created successfully');
+        if($user){   
+            return redirect()->route('login')->with('success', 'Account created successfully');
+        } else {
+            return redirect()->route('register')->with('error', 'Something went wrong');
+        }
     }
 }

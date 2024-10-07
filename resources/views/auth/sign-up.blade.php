@@ -134,20 +134,39 @@
               <a href="login.html">Sign In</a>
             </p>
           </div>
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{ route('register') }}" method="POST" class="php-email-form">
+              @csrf
               <div class="row">
-                <div class="col-md-6 form-group">
+                <div class="form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="First Name" required="">
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Last Name" required="">
+                  @error('name')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
                 </div>
               </div>
               <div class="form-group mt-3">
                 <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                @error('email')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="Your phone" required="">
+                @error('phone')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group mt-3">
               <input type="password" class="form-control" name="password" id="password" placeholder="Password" required="">
+              @error('password')
+                <div class="text-danger">{{ $message }}</div>
+              @enderror
+              </div>
+              <div class="form-group mt-3">
+                <input type="password" class="form-control" name="password_confirmation" id="password" placeholder="Password" required="">
+                @error('password_confirmation')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
