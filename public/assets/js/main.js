@@ -218,4 +218,68 @@
 
   });
 
+  document.addEventListener('DOMContentLoaded', function () {
+    // Counter Functionality
+    const decrementBtn = document.getElementById('decrement');
+    const incrementBtn = document.getElementById('increment');
+    const counterDisplay = document.getElementById('counter');
+    const ticketCountDisplay = document.getElementById('ticketCount');
+    const bookingDateDisplay = document.getElementById('bookingDateDisplay');
+    const totalPriceDisplay = document.getElementById('totalPrice');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    let counterValue = 0;
+    const ticketPrice = 8000; // Harga tiket per orang
+
+    // Update order summary
+    function updateOrderSummary() {
+        ticketCountDisplay.textContent = counterValue;
+        totalPriceDisplay.textContent = `IDR ${counterValue * ticketPrice}`;
+    }
+
+    decrementBtn.addEventListener('click', () => {
+        if (counterValue > 0) {
+            counterValue--;
+            counterDisplay.textContent = counterValue;
+            updateOrderSummary();
+        }
+    });
+
+    incrementBtn.addEventListener('click', () => {
+        counterValue++;
+        counterDisplay.textContent = counterValue;
+        updateOrderSummary();
+    });
+
+    // Initialize flatpickr for the booking date picker
+    flatpickr("#bookingDatePicker", {
+        dateFormat: "Y-m-d",
+        altInput: true,
+        altFormat: "F j, Y",
+        minDate: "today",
+        inline: true, // Show the calendar inline
+        onChange: function(selectedDates, dateStr) {
+            bookingDateDisplay.textContent = dateStr;
+            updateOrderSummary();
+        }
+    });
+
+    // Checkout button functionality
+    checkoutBtn.addEventListener('click', () => {
+        // Show SweetAlert confirmation
+        Swal.fire({
+            title: 'Success!',
+            text: 'Your booking has been successfully processed!',
+            icon: 'success',
+            confirmButtonText: 'Okay'
+        }).then(() => {
+            // Clear the order summary
+            counterValue = 0;
+            counterDisplay.textContent = counterValue;
+            ticketCountDisplay.textContent = counterValue;
+            totalPriceDisplay.textContent = `IDR 0`;
+            bookingDateDisplay.textContent = 'None';
+        });
+    });
+});
+
 })();

@@ -46,7 +46,8 @@ $pageTitle = setPageTitle($topik);
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
+  <!-- ini gawe kalender oioi -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- =======================================================
   * Template Name: Active
   * Template URL: https://bootstrapmade.com/active-bootstrap-website-template/
