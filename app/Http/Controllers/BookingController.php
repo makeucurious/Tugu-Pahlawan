@@ -14,6 +14,7 @@ class BookingController extends Controller
             'booking_date' => 'required',
             'quantity' => 'required',
             'total_price' => 'required',
+            'schedule_id' => 'required'
         ]);
 
         $user = auth()->user();

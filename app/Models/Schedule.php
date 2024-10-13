@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     use HasFactory, Uuid;
+
+    protected $fillable = ['day', 'open_time', 'close_time'];
 }
