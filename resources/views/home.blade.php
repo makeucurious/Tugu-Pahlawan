@@ -6,7 +6,6 @@
 
     <!-- About Section -->
     <section id="about" class="about section" style="padding: 0">
-
       <div class="banner">
             <div class="swiper init-swiper">
               <script type="application/json" class="swiper-config">
@@ -35,7 +34,7 @@
                 }
               </script>
               <div class="swiper-wrapper">
-
+                
                 <div class="swiper-slide">
                  <span class="omaga" style="opacity: 1;">
                      <header>
@@ -43,7 +42,7 @@
                         <br>
                         <span class="title">Story of Museum Tugu Pahlawan</span>
                       </header>
-                      <a href="about.html" class="btn btn-get-started">LEARN MORE</a>
+                      <a href="{{ url('/BookTour') }}" class="btn btn-get-started">LEARN MORE</a>
                       </span>
                   <img src="assets/img/img_a_1.jpg" alt="Image" class="img-fluid">
                   <span class="bg-gradasi" style="opacity: 1;"></span>
@@ -58,7 +57,7 @@
                         <br>
                         <span class="title">Story of Museum Tugu Pahlawan</span>
                       </header>
-                      <a href="about.html" class="btn btn-get-started">LEARN MORE</a>
+                      <a href="{{ url('/BookTour') }}" class="btn btn-get-started">LEARN MORE</a>
                       </span>
                   <img src="assets/img/img_a_2.jpg" alt="Image" class="img-fluid">
                   <span class="bg-gradasi" style="opacity: 1;"></span>
@@ -73,7 +72,7 @@
                         <br>
                         <span class="title">Story of Museum Tugu Pahlawan</span>
                       </header>
-                      <a href="about.html" class="btn btn-get-started">LEARN MORE</a>
+                      <a href="{{ url('/BookTour') }}" class="btn btn-get-started">LEARN MORE</a>
                       </span>
                   <img src="assets/img/img_a_3.jpg" alt="Image" class="img-fluid">
                   <span class="bg-gradasi" style="opacity: 1;"></span>
@@ -163,7 +162,7 @@
       Temukan sejarah heroik perjuangan kemerdekaan Indonesia melalui koleksi kami yang beragam. Mari bersama-sama menghormati jasa para pahlawan dan menginspirasi generasi masa depan.
       </p>
       <p class="mb-4" data-aos="fade-up">
-        <a href="#" class="btn btn-get-started"> BUY TICKET</a>
+        <a href="{{ url('/ticket') }}" class="btn btn-get-started"> BUY TICKET</a>
       </p>
     </div>
   </div>

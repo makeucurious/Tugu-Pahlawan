@@ -37,12 +37,20 @@ Route::get('/sign-up', function () {
     ]);
 });
 
+Route::get('/ticket', function () {
+    return view('ticket', [
+        "title" => "Get Ticket"
+    ]);
+});
+
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('showlogin');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('register', [AuthController::class, 'register'])->name('register');
 
+Route::get('/plan', [PlanController::class, 'index'])->name('plan');
+
 Route::middleware('auth')->group(function () {
-    Route::get('/plan', [PlanController::class, 'index'])->name('plan');
+   
 });
 
 

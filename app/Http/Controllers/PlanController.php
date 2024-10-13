@@ -14,7 +14,7 @@ class PlanController extends Controller
         $category = [
             (object)[
                 'name' => 'Adult',
-                'price' => 'Rp 8.000'
+                'price' => 'IDR 8.000'
             ],
             (object)[
                 'name' => ' Students Walk-Up with ID',
